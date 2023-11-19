@@ -7,10 +7,12 @@ import { Provider } from "react-redux";
 import { rootReducer } from "./Ex_Shoe_Redux/redux/reducer/root";
 import { createStore } from "redux";
 import { XucXac_reducer } from "./Ex_Tai_Xiu/redux/reducer/XucXac_reducer2";
+import { seatHandler } from "./Dat_ve_phim/redux/reducer/ReducerSeat";
 
 // XucXac_reducer,
+// rootReducer,
 export const store = createStore(
-  rootReducer,
+  seatHandler,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

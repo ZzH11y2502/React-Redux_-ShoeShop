@@ -3,3 +3,5 @@ export const LUACHON = "LUACHON";
 export const TAI = "TÀI";
 export const XIU = "XỈU";
 export const PLAYGAME = "PLAYGAME";
+export const WIN = "WIN";
+export const LOSE = "LOSE";
