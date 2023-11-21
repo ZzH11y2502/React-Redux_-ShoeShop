@@ -1,5 +1,10 @@
 import { chairList } from "../../chairList";
-import { ChairConfirm, Confirm, InputSeat } from "../Constants/Constants";
+import {
+  ChairConfirm,
+  Confirm,
+  InputSeat,
+  Purchase,
+} from "../Constants/Constants";
 
 let initialState = {
   seatsInput: 0,
@@ -19,7 +24,7 @@ export const seatHandler = (state = initialState, action) => {
 
       // Check element on chairList
       const index = newticketCart.findIndex(
-        (item) => item.soGhe == chair.soGhe
+        (item) => item.soGhe === chair.soGhe
       );
 
       console.log(chair);
@@ -49,25 +54,37 @@ export const seatHandler = (state = initialState, action) => {
     case ChairConfirm: {
       const newticketCart = [...state.ticketCart];
       const nameCustomer = state.nameCustomer;
-      const seatsInput = state.seatsInput;
-      const inputName = document.getElementById("inputName").value;
-
+      const inputName = document.querySelector("#inputName").value;
       const chairNumber = document.querySelector("#chairsNumber").value;
-      console.log(
-        "🚀 ~ file: ReducerSeat.js:50 ~ seatHandler ~ chairNumber:",
-        chairNumber
-      );
 
       // Update state
       state.ticketCart = [...newticketCart];
       state.nameCustomer = inputName;
-      state.seatsInput = seatsInput;
+      state.seatsInput = chairNumber;
       return { ...state };
     }
     case Confirm: {
       const newticketCart = [...state.ticketCart];
+
       const nameCustomer = state.nameCustomer;
       const seatsInput = state.seatsInput;
+      let ticketNumber = "";
+      newticketCart.map((ticket) => {
+        return (ticketNumber = ticketNumber + " " + ticket.soGhe);
+      });
+      let tongTien = 0;
+      newticketCart.map((ticket) => {
+        return (tongTien += ticket.gia);
+      });
+      // DOM to Thong tin khach hang
+      document.querySelector(".nameCustomer").innerHTML = nameCustomer;
+      document.querySelector(".numberSeats").innerHTML = seatsInput;
+      document.querySelector(".seatCode").innerHTML = ticketNumber;
+      document.querySelector(".tinhTien").innerHTML = tongTien + " VNĐ";
+      return { ...state };
+    }
+    case Purchase: {
+      alert("Thanh toán thành công");
     }
     default: {
       return state;

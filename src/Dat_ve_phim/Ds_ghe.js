@@ -27,10 +27,6 @@ class SquareOfCheckboxTable extends Component {
                       (seatStyles = {
                         backgroundColor: seat.daDat ? "orange" : "",
                       })
-                      // (selectedButtonStyles = {
-                      //   backgroundColor:
-                      //     seat.dangChon && seat.daDat ? "" : "green",
-                      // })
                     }
                     key={seatIndex}
                   >

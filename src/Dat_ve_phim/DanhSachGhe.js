@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 class DanhSachGhe extends Component {
   render() {
     return (
-      <div className="w-50">
+      <div className="col-6">
         <p className="text-warning text-center display-4">Đặt vé xem phim</p>
         <div className="text-center display-5">
           <input
@@ -67,6 +67,7 @@ let mapDispatchToProps = (dispatch) => {
       let action = {
         type: Confirm,
       };
+      dispatch(action);
     },
   };
 };
